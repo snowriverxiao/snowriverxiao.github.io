@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 def newvec(n=3):
     my_list = [0] * n
