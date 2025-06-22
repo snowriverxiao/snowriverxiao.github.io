@@ -7,21 +7,26 @@ def newvec(n=3):
     my_list[random_index] = 1
     return np.array(my_list)
     
-exchange = 0
+switching = 0
 Awin = 0
 Bwin = 0
 n = 3
 times = 100000
+
 for s in range(times):
-    vec=newvec(n)
-    i=random.randint(0, n - 1)
-    A=vec[i]
-    B=vec[-i]
-    mask = np.ones(3, dtype=bool) #
+    vec = newvec(n)
+    i = random.randint(0, n - 1)
+    A = vec[i]
+    B = vec[-i]
+    mask = np.ones(n, dtype=bool) 
     mask[i] = False
     B = vec[mask]
-    j=random.randint(0, n - 2)
-    if B[j] == 0:
-        exchange+=1
-        Awin+=A
-        Bwin+=B[n-2-j]
+    shuffled_indices = np.random.permutation(n-1)
+    random_indices = shuffled_indices[:n-2]
+    if np.sum(B[random_indices]) == 0:
+        switching += 1
+        Awin += A
+        Bwin += B[shuffled_indices[n-2]]
+        
+print(f"The probability of winning with the initial choice {Awin/switching}")
+print(f"The probability of winning with the switching {Bwin/switching}")
