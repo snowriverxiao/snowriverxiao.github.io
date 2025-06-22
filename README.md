@@ -31,4 +31,4 @@ python monty_simulation.py --n 3 --times 1000000
 To run the code you have to install python and its numpy library.
 
 ## License
-The code related to the DiffMorpher algorithm is licensed under [LICENSE](LICENSE). 
+The code is licensed under [LICENSE](LICENSE). 
