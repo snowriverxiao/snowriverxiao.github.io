@@ -10,7 +10,7 @@ In the classic game, there are three doors—only one of them hides a prize, whi
 
 Many people claim that switching increases your chances of winning, based on a well-known argument: since you initially have a 1/3 chance of choosing the prize, the remaining two doors collectively hold a 2/3 chance. When one of those is revealed to be empty, they argue, the full 2/3 probability "transfers" to the remaining closed door, making switching the better strategy.
 
-However, this reasoning subtly changes the problem. The real question is: given that the bystander opens an empty door and you are presented with a switching option, should you switch? In other words, we must only consider the situations where the bystander opens an empty door and leaves exactly one unopened alternative—a true switching scenario. If the bystander had opened the prize door, the game would end immediately with no switching choice available.
+However, this reasoning subtly changes the problem. The real question is: given that the bystander randomly opens an empty door and you are presented with a switching option, should you switch? In other words, we must only consider the situations where the bystander opens an empty door and leaves exactly one unopened alternative—a true switching scenario. If the bystander had opened the prize door, the game would end immediately with no switching choice available.
 
 So, to correctly calculate the probability, you must focus on the subset of cases where you actually face a switching decision. The denominator of your probability should be the total number of times such switching situations arise. Then, among those, you compare how often sticking vs. switching leads to a win.
 
