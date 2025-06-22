@@ -27,7 +27,7 @@ But if the host knows where the prize is and intentionally avoids revealing it, 
 
 In short, if the host acts randomly—as you do when choosing your door—the background distribution changes. You’re no longer sampling uniformly from all three cases but are conditioning only on those where a switching opportunity arises. Within that conditional set, the probability of winning by switching becomes equal to that of staying. This happens because Case 1 (choosing the prize initially) has a lower chance of being sampled, but always results in a switching opportunity. Meanwhile, Cases 2 and 3 each have only a 50% chance of qualifying as switching situations.
 
-Again, if the host uses knowledge to always avoid revealing the prize, then Cases 2 and 3 each have a 100% chance of leading to a switching situation. As a result, the original 2-to-1 bias toward the unchosen side is preserved. No surprise: switching remains the better strategy, just as commonly taught.
+Again, if the host uses knowledge to always avoid revealing the prize, then Cases 2 and 3 each have a 100% chance of leading to a switching situation. In effect, the host manually increases the frequency of switching scenarios for those cases. As a result, the original 2-to-1 bias in favor of the unchosen side is preserved. No surprise: switching remains the better strategy, just as commonly taught.
 
 #### Extension to More Than Three Doors
 The same logic generalizes to scenarios with more than three doors. Suppose you begin with n doors. You choose one, and the host then opens all but one of the remaining doors. A switching scenario is valid only if none of the opened doors reveals the prize.
