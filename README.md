@@ -25,3 +25,10 @@ To illustrate this, here is a Python simulation. You can run it with --times to 
 python monty_simulation.py --n 5 --times 100000
 ```
 </p>
+
+
+## Requirements
+To run the code you have to install python and its numpy library.
+
+## License
+The code related to the DiffMorpher algorithm is licensed under [LICENSE](LICENSE.txt). 
