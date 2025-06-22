@@ -6,19 +6,36 @@
   </div>
   
 ## The problem
-In the classic game, there are three doors—only one of them hides a prize, while the other two are empty. You choose a door at random, say door #1. Then, a bystander opens one of the remaining two doors (say door #2), revealing it to be empty. Now you're faced with a choice: should you switch to the remaining unopened door (#3), or stay with your original choice?
+In the classic Monty Hall game, there are three doors—only one of which hides a prize, while the other two are empty. You choose a door at random, say Door #1. Then, a bystander (often imagined as the host) opens one of the remaining two doors—say Door #2—revealing it to be empty. Now you're faced with a choice: should you stick with your original selection, or switch to the remaining unopened door (Door #3)?
 
-Many people claim that switching increases your chances of winning, based on a well-known argument: since you initially have a 1/3 chance of choosing the prize, the remaining two doors collectively hold a 2/3 chance. When one of those is revealed to be empty, they argue, the full 2/3 probability "transfers" to the remaining closed door, making switching the better strategy. This is true only when the bystander knows where the prize is, and make sure that never open the door has prize on purpose.
+Many argue that switching improves your odds, based on the classic reasoning: your initial choice has a 1/3 chance of being correct, while the two unchosen doors collectively carry a 2/3 chance. Once the host reveals one of those unchosen doors to be empty, the full 2/3 probability is said to "transfer" to the other unopened door, making switching the optimal strategy.
 
-Let's think about the question: you are presented with a switching option, should you switch? In other words, we must only consider the situations where the bystander opens an empty door and leaves exactly one unopened alternative—a true switching scenario. So, to correctly calculate the probability, you must focus on the subset of cases where you actually face a switching decision. The denominator of your probability should be the total number of times such switching situations arise. Then, among those, you compare how often sticking vs. switching leads to a win.
+This conclusion, however, relies on a key assumption: that the host knows where the prize is and always opens an empty door on purpose. That knowledge—and the deliberate behavior based on it—directly affects the probability distribution.
 
-Let’s revisit the original 3-door example. While case 1 (you pick the prize door initially) has a 1/3 chance, and cases 2 and 3 (you pick an empty door) together have a 2/3 chance, not all cases equally lead to switching scenarios. In case 1, no matter which of the two remaining doors the bystander opens, you always face a switching decision, which means 100% chance of facing a switching situation. In cases 2 and 3, however, if the bystander randomly choose door to open, then each case has only a 50% chance of leading to a switching situation. BUT, if the bystander can see the prize, and only open the empty door on purpose, which guarantee the case2 and case3 also has 100% chance of leading to a switching situation, this knowledge interfere the  probability freely shift diretion and fix the 2/3 probability of prize in the unchosen doors. 
+Now, let’s reconsider the question more precisely: When you are presented with the option to switch, should you? In other words, we should only evaluate the subset of cases where a valid switching scenario actually occurs—that is, the host opens an empty door, and one unopened alternative remains. To compute accurate probabilities, we must condition only on such situations. The denominator of your probability becomes the total number of valid switching scenarios; then you compare how often sticking vs. switching leads to a win within this conditional space.
 
-In a word, if let bystander choose randomly as you do, the background distribution changes. You are no longer sampling uniformly from all three cases, but rather conditioning on only the ones that present a switching scenario. And in that conditional space, the probability of winning by switching becomes equal to that of not switching. This is because, although case 1 has a lower chance of being sampled, it always counts as a switching situation. In contrast, cases 2 and 3 are each only counted as switching situations 50% of the time. BUT, if let bystander use kownledge to fix the background distrubtion, no suprize, unchosen side has better probability. 
+#### Revisiting the 3-door case:
 
-The same logic extends to scenarios with more than three doors. If the rules generalize to more than three doors: you pick one, the bystander randomly opens all but one of the remaining doors, and a switching situation is only considered valid if the prize was not revealed during the process. You'll find that, when conditioned on the actual switching scenarios, the probabilities of winning by switching or staying are roughly equal. This is because, in case 1 (where you initially choose the prize door) always results in a switching situation—100% of the time. In contrast, for any of the other n-1 cases (where the prize is behind one of the unchosen doors), each has only a 1/(n-1) chance of becoming a switching scenario. Here, n represents the total number of doors at the start. But if you force only all empty doors open on the unslected side, the probability will always favor the unselected side.
+Case 1 (you initially pick the prize) has a 1/3 chance.
+Cases 2 and 3 (you initially pick an empty door) together have a 2/3 chance.
+However, these do not equally lead to switching situations.
 
-To illustrate this, here is a Python simulation. You can run it with --times to set how many simulations to perform, and --n to set how many doors to include. 
+In Case 1, no matter which of the two remaining doors the bystander opens, you're always offered a switching opportunity—100% of the time.
+In Cases 2 and 3, if the bystander chooses randomly between the remaining doors (without knowledge of the prize location), there's only a 50% chance they reveal an empty door that leaves exactly one unopened alternative—meaning only a 50% chance of a valid switching scenario.
+But if the bystander knows where the prize is and intentionally avoids revealing it, then Cases 2 and 3 also always lead to switching situations. In that case, the original 2/3 probability on the unchosen side holds, and switching remains the superior strategy. The bystander’s knowledge effectively fixes the background distribution and eliminates randomness from the setup.
+
+In short, if the bystander acts randomly—as you do when choosing your door—the background distribution changes. You’re no longer sampling uniformly from all three cases but are conditioning only on those where a switching opportunity arises. Within that conditional set, the probability of winning by switching becomes equal to that of staying. This happens because Case 1 (choosing the prize initially) has a lower chance of being sampled, but always results in a switching opportunity. Meanwhile, Cases 2 and 3 each have only a 50% chance of qualifying as switching situations.
+
+Again, if the bystander uses knowledge to always avoid the prize, then the original bias toward the unchosen side is preserved. No surprise: switching will then beat sticking 2-to-1, as commonly taught.
+
+#### Extension to More Than Three Doors
+The same logic generalizes to scenarios with more than three doors. Suppose you begin with n doors. You choose one, and the bystander then opens all but one of the remaining doors. A switching scenario is valid only if none of the opened doors reveals the prize.
+
+In Case 1 (you initially choose the prize), the bystander can always open n−2 empty doors, so a switching scenario occurs 100% of the time. In any of the other n-1 cases (you initially choose an empty door), there’s only a 1/(n-1) chance that the bystander opens all other empty doors and avoids the prize—assuming they choose randomly without knowledge.
+
+But if you require the bystander to avoid revealing the prize—ensuring a switching scenario always occurs when possible—then the distribution no longer shifts randomly. Instead, it becomes fixed in favor of the unchosen side, which retains a higher probability of hiding the prize. In this setup, switching once again becomes the advantageous strategy.
+
+
 
 ## Run the code
 ```bash
