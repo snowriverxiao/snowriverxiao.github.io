@@ -6,7 +6,7 @@
   </div>
   
 ## The problem
-In the classic game, there are three doors—only one of them hides a prize, while the other two are empty. You choose a door at random, say door #1. Then, a bystander opens one of the remaining two doors (say door #2), revealing it to be empty. Now you're faced with a choice: should you switch to the remaining unopened door (#3), or stay with your original choice?
+In the classic game, there are three doors—only one of them hides a prize, while the other two are empty. You choose a door at random, say door #1. Then, a bystander randomly opens one of the remaining two doors (say door #2), revealing it to be empty. Now you're faced with a choice: should you switch to the remaining unopened door (#3), or stay with your original choice?
 
 Many people claim that switching increases your chances of winning, based on a well-known argument: since you initially have a 1/3 chance of choosing the prize, the remaining two doors collectively hold a 2/3 chance. When one of those is revealed to be empty, they argue, the full 2/3 probability "transfers" to the remaining closed door, making switching the better strategy.
 
@@ -18,7 +18,7 @@ Let’s revisit the original 3-door example. While case 1 (you pick the prize do
 
 Thus, if you're only counting the times you are truly faced with a switching decision, the background distribution changes. You are no longer sampling uniformly from all three cases, but rather conditioning on only the ones that present a switching scenario. And in that conditional space, the probability of winning by switching becomes equal to that of not switching. This is because, although case 1 has a lower chance of being sampled, it always counts as a switching situation. In contrast, cases 2 and 3 are each only counted as switching situations 50% of the time. 
 
-The same logic extends to scenarios with more than three doors. If the rules generalize to more than three doors: you pick one, the bystander opens all but one of the remaining doors, and a switching situation is only considered valid if the prize was not revealed during the process. You'll find that, when conditioned on the actual switching scenarios, the probabilities of winning by switching or staying are roughly equal. This is because, in case 1 (where you initially choose the prize door) always results in a switching situation—100% of the time. In contrast, for any of the other n-1 cases (where the prize is behind one of the unchosen doors), each has only a 1/(n-1) chance of becoming a switching scenario. Here, n represents the total number of doors at the start.
+The same logic extends to scenarios with more than three doors. If the rules generalize to more than three doors: you pick one, the bystander randomly opens all but one of the remaining doors, and a switching situation is only considered valid if the prize was not revealed during the process. You'll find that, when conditioned on the actual switching scenarios, the probabilities of winning by switching or staying are roughly equal. This is because, in case 1 (where you initially choose the prize door) always results in a switching situation—100% of the time. In contrast, for any of the other n-1 cases (where the prize is behind one of the unchosen doors), each has only a 1/(n-1) chance of becoming a switching scenario. Here, n represents the total number of doors at the start.
 
 To illustrate this, here is a Python simulation. You can run it with --times to set how many simulations to perform, and --n to set how many doors to include. 
 
