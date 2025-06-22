@@ -22,7 +22,7 @@ To illustrate this, here is a Python simulation. You can run it with --times to 
 
 ## Run the code
 ```bash
-python monty_simulation.py --n 5 --times 100000
+python monty_simulation.py --n 3 --times 1000000
 ```
 </p>
 
