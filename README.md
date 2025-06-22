@@ -26,15 +26,14 @@ But if the bystander knows where the prize is and intentionally avoids revealing
 
 In short, if the bystander acts randomly—as you do when choosing your door—the background distribution changes. You’re no longer sampling uniformly from all three cases but are conditioning only on those where a switching opportunity arises. Within that conditional set, the probability of winning by switching becomes equal to that of staying. This happens because Case 1 (choosing the prize initially) has a lower chance of being sampled, but always results in a switching opportunity. Meanwhile, Cases 2 and 3 each have only a 50% chance of qualifying as switching situations.
 
-Again, if the bystander uses knowledge to always avoid the prize, then the original bias toward the unchosen side is preserved. No surprise: switching will then beat sticking 2-to-1, as commonly taught.
+Again, if the bystander uses knowledge to always avoid revealing the prize, then Cases 2 and 3 each have a 100% chance of leading to a switching situation. As a result, the original 2-to-1 bias toward the unchosen side is preserved. No surprise: switching remains the better strategy, just as commonly taught.
 
 #### Extension to More Than Three Doors
 The same logic generalizes to scenarios with more than three doors. Suppose you begin with n doors. You choose one, and the bystander then opens all but one of the remaining doors. A switching scenario is valid only if none of the opened doors reveals the prize.
 
 In Case 1 (you initially choose the prize), the bystander can always open n−2 empty doors, so a switching scenario occurs 100% of the time. In any of the other n-1 cases (you initially choose an empty door), there’s only a 1/(n-1) chance that the bystander opens all other empty doors and avoids the prize—assuming they choose randomly without knowledge.
 
-But if you require the bystander to avoid revealing the prize—ensuring a switching scenario always occurs when possible—then the distribution no longer shifts randomly. Instead, it becomes fixed in favor of the unchosen side, which retains a higher probability of hiding the prize. In this setup, switching once again becomes the advantageous strategy.
-
+But if you require the bystander to avoid revealing the prize—ensuring that a switching scenario always occurs when possible—then the distribution no longer shifts randomly. Instead, it becomes fixed in favor of the unchosen side, which retains a higher probability of hiding the prize. In this setup, all of the other n−1 cases (where you initially chose incorrectly) now each have a 100% chance of resulting in a switching scenario. As a result, switching once again becomes the advantageous strategy.
 
 
 ## Run the code
