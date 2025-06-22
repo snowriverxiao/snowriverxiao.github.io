@@ -1,5 +1,6 @@
 import random
 import numpy as np
+import argparse
 
 def newvec(n=3):
     my_list = [0] * n
@@ -30,3 +31,11 @@ for s in range(times):
         
 print(f"The probability of winning with the initial choice {Awin/switching}")
 print(f"The probability of winning with the switching {Bwin/switching}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Monty Hall Simulation")
+    parser.add_argument('--n', type=int, default=3, help="Number of doors")
+    parser.add_argument('--times', type=int, default=100000, help="Number of simulations")
+    args = parser.parse_args()
+    
+    main(args.n, args.times)
