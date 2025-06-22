@@ -39,7 +39,7 @@ To illustrate this, here is a Python simulation. You can run it with --times to 
 
 ## Run the code
 ```bash
-python 3doors.py --n 3 --times 100000  --randomHost 0
+python monty_simulation.py --n 3 --times 100000  --randomHost 0
 ```
 </p>
 
