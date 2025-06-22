@@ -35,10 +35,11 @@ In Case 1 (you initially choose the prize), the bystander can always open n−2 
 
 But if you require the bystander to avoid revealing the prize—ensuring that a switching scenario always occurs when possible—then the distribution no longer shifts randomly. Instead, it becomes fixed in favor of the unchosen side, which retains a higher probability of hiding the prize. In this setup, all of the other n−1 cases (where you initially chose incorrectly) now each have a 100% chance of resulting in a switching scenario. As a result, switching once again becomes the advantageous strategy.
 
+To illustrate this, here is a Python simulation. You can run it with --times to specify how many simulations to perform, --n to set the number of doors, and --randomHost to control the host's behavior—use 1 for a random (uninformed) host, or 0 for an informed host who always avoids revealing the prize.
 
 ## Run the code
 ```bash
-python monty_simulation.py --n 3 --times 1000000
+python 3doors.py --n 3 --times 100000  --randomHost 0
 ```
 </p>
 
