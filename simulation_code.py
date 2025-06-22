@@ -10,7 +10,7 @@ def newvec(n=3):
 switching = 0
 Awin = 0
 Bwin = 0
-n = 3
+n = 3  ## Try increasing number of doors
 times = 100000
 
 for s in range(times):
